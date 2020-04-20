@@ -125,4 +125,13 @@
 			"};",
 		],
 	},
+	"React Native style object": {
+		"prefix": "rnso",
+		"description": "An example of a style object to pass to StyleSheet.create()",
+		"body": [
+			"${1:objName}: {",
+			"\t${2:style}: ${3:value},",
+			"},",
+		],
+	},
 }
