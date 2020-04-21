@@ -130,8 +130,26 @@
 		"description": "An example of a style object to pass to StyleSheet.create()",
 		"body": [
 			"${1:objName}: {",
-			"\t${2:style}: ${3:value},",
+			"\t${2:style}: ${3:value},$0",
 			"},",
+		],
+	},
+	"React useEffect Async": {
+		"prefix": "ruea",
+		"description": "Stub useEffect that loads data asynchronously",
+		"body": [
+			"useEffect(() => {",
+			"\t(async () => {",
+			"\t\t$0",
+			"\t})();",
+			"}, []);",
+		],
+	},
+	"React useState stub": {
+		"prefix": "rus",
+		"description": "A declaration of an item to maintain in state with useState()",
+		"body": [
+			"const [${1:stateVar}, ${2:stateFunc}] = useState(${3:initialState});",
 		],
 	},
 }
