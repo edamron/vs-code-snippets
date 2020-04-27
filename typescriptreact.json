@@ -1,0 +1,123 @@
+{
+	/*
+	"snippet title": {
+		"prefix": "",
+		"description": "",
+		// "body": "",
+		"body": [
+			"",
+		],
+	},
+	*/
+	"React functional component in TS": {
+		"prefix": "rfc",
+		"description": "React functional component in TS",
+		"body": [
+			"import React from 'react';",
+			"",
+			"interface ${1:componentName}Props {",
+			"\t${2:prop1}: number;",
+			"\t${3:prop2}: string;",
+			"\t${4:prop3}: boolean;",
+			"\t${5:prop4}: (${6:p1}: number, ${7:p1}: string) => void;",
+			"}",
+			"",
+			"export const $1 = (props: $1Props) => {",
+			"\t$0",
+			"}",
+		],
+	},
+	"React conditional 'if / else' render": {
+		"prefix": "rcier",
+		"description": "React conditional 'if / else' render",
+		"body": [
+			"{true ? (",
+			"\t<p>when true</p>",
+			") : (",
+			"\t<p>when false</p>",
+			")}",
+		],
+	},
+	"React conditionally-rendered component": {
+		"prefix": "rcr",
+		"description": "React conditional render",
+		"body": [
+			"{${1:condition} && (",
+			"\t<${2:component} $0 />",
+			")}",
+		],
+	},
+	"React useEffect w/async data load": {
+		"prefix": "ruea",
+		"description": "Stub useEffect in TS that loads data asynchronously",
+		"body": [
+			"useEffect(() => {",
+			"\t(async () => {",
+			"\t\t$0",
+			"\t})();",
+			"}, []);",
+		],
+	},
+	"React useEffect w/cleanup function": {
+		"prefix": "ruecf",
+		"description": "Stub useEffect in TS that loads data asynchronously",
+		"body": [
+			"useEffect(() => {",
+			"\t$0",
+			"\t",
+			"\treturn () => {",
+			"\t\t",
+			"\t};",
+			"}, []);",
+		],
+	},
+	"React useState stub": {
+		"prefix": "rus",
+		"description": "A declaration of an item to maintain in state with useState()",
+		"body": [
+			"const [${1:stateVar}, set$0$1] = useState(${2:initialState});",
+		],
+	},
+	"ES6 Function Declaration": {
+		"prefix": "fn",
+		"description": "A bare-bones TS ES6 function declaration",
+		"body": [
+			"const ${1:funcName} = ($2): ${3:void} => {",
+			"\t$0",
+			"};",
+		],
+	},
+	"Axios GET": {
+		"prefix": "axios_get",
+		"description": "axios get",
+		"body": [
+			"const url = '${1:url}';",
+			"axios",
+			"\t.get(url)",
+			"\t.then(res => {",
+			"\t\t$0",
+			"\t})",
+			"\t.catch(err => {",
+			"\t\tconsole.log(`Error getting '\\${url\\}': \\${err\\}`);",
+			"\t})",
+		],
+	},
+	"Axios POST": {
+		"prefix": "axios_post",
+		"description": "axios post",
+		"body": [
+			"const url = '${1:url}';",
+			"axios",
+			"\t.post(url, {",
+			"\t\t${2:key1}: ${3:value1},",
+			"\t\t${4:key2}: ${5:value2},",
+			"\t})",
+			"\t.then(res => {",
+			"\t\t$0",
+			"\t})",
+			"\t.catch(err => {",
+			"\t\tconsole.log(`Error postting '\\${url\\}': \\${err\\}`);",
+			"\t})",
+		],
+	},
+}

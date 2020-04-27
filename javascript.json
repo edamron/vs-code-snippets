@@ -1,7 +1,17 @@
 {
+	/*
+	"snippet title": {
+		"prefix": "",
+		"description": "",
+		// "body": "",
+		"body": [
+			"",
+		],
+	},
+	*/
 	"React Native Functional Component": {
 		"prefix": "rnfc",
-		"description": "A complete React Native functional component",
+		"description": "A React Native functional component",
 		"body": [
 			"//@ts-check",
 			"",
@@ -96,11 +106,22 @@
 		],
 	},
 	"React conditionally-rendered component": {
-		"prefix": "rcrc",
+		"prefix": "rcr",
 		"description": "Shell for conditionally rendering a React component",
 		"body": [
 			"{${1:condition} && (",
 			"\t<${2:component} $0 />",
+			")}",
+		],
+	},
+	"React conditional 'if / else' render": {
+		"prefix": "rcr_ie",
+		"description": "React conditional 'if / else' render",
+		"body": [
+			"{true ? (",
+			"\t<p>when true</p>",
+			") : (",
+			"\t<p>when false</p>",
 			")}",
 		],
 	},
@@ -134,7 +155,7 @@
 			"},",
 		],
 	},
-	"React useEffect Async": {
+	"React useEffect w/async data load": {
 		"prefix": "ruea",
 		"description": "Stub useEffect that loads data asynchronously",
 		"body": [
@@ -145,11 +166,116 @@
 			"}, []);",
 		],
 	},
+	"React useEffect w/cleanup function": {
+		"prefix": "ruecf",
+		"description": "Stub useEffect that loads data asynchronously",
+		"body": [
+			"useEffect(() => {",
+			"\t$0",
+			"\t",
+			"\treturn () => {",
+			"\t\t",
+			"\t};",
+			"}, []);",
+		],
+	},
+	"React useEffect w/useRef / previous value": {
+		"prefix": "ruepre",
+		"description": "Uses useRef to track previous useEffect value",
+		"body": [
+			"const usePrevious = (value) => {",
+			"\tconst ref = useRef();",
+			"\tuseEffect(() => {",
+			"\t\tref.current = value;",
+			"\t});",
+			"\treturn ref.current;",
+			"};",
+			"// can check against prev_* variable in your useEffect callback",
+			"const prev_${1:variableEffectDependsOn} = usePrevious($1);",
+		],
+	},
 	"React useState stub": {
 		"prefix": "rus",
 		"description": "A declaration of an item to maintain in state with useState()",
 		"body": [
-			"const [${1:stateVar}, ${2:stateFunc}] = useState(${3:initialState});",
+			"const [${1:stateVar}, set$0$1] = useState(${2:initialState});",
 		],
 	},
+	"knex SELECT": {
+		"prefix": "knex_select",
+		"description": "A basic knex SELECT statement",
+		"body": [
+			"exports.${1:tableName}All = async (req, res) => {",
+			"knex.select('${2:*}')",
+			"\t\t.from('$1')",
+			"\t\t.then((${3:data}) => {",
+			"\t\t\tres.json($3);",
+			"\t\t})",
+			"\t\t.catch((${4:err}) => {",
+			"\t\t\tres.json({ message: `Error retrieving rows from table '$1': ${$4}` });",
+			"\t\t})",
+			"};",
+			"",
+		],
+	},
+	"knex INSERT": {
+		"prefix": "knex_insert",
+		"description": "A basic knex INSERT statement",
+		"body": [
+			"exports.${1:tableName}Create = async (req, res) => {",
+			"\tknex('$1')",
+			"\t\t.insert({",
+			"\t\t\t'${2:key1}': req.body.$2,",
+			"\t\t\t'${3:key2}': req.body.$3,",
+			"\t\t})",
+			"\t\t.then(() => {",
+			"\t\t\tres.json({ message: '$1 row created successfully' });",
+			"\t\t})",
+			"\t\t.catch(err => {",
+			"\t\t\tres.json({ message: `Error inserting to table $1: \\${err\\}` });",
+			"\t\t})",
+			"};",
+		],
+	},
+	"node.js requre": {
+		"prefix": "req",
+		"description": "A basic node.js 'const ... = require( ... )' statement",
+		"body": [
+			"const ${1:what?} = require('$0');"
+		],
+	},
+	"Axios GET": {
+		"prefix": "axios_get",
+		"description": "axios get",
+		"body": [
+			"const url = '${1:url}';",
+			"axios",
+			"\t.get(url)",
+			"\t.then(res => {",
+			"\t\t$0",
+			"\t})",
+			"\t.catch(err => {",
+			"\t\tconsole.log(`Error getting '\\${url\\}': \\${err\\}`);",
+			"\t})",
+		],
+	},
+	"Express GET route": {
+		"prefix": "exp_get",
+		"description": "Express GET route",
+		"body": [
+			"router.get('/', (req, res) => {",
+			"\tres.json({ a: 'a', b: 99, c: false });",
+			"});",
+		],
+	},
+	/*
+	"snippet title": {
+		"prefix": "",
+		"description": "",
+		// "body": "",
+		"body": [
+			"",
+		],
+	},
+	*/
 }
