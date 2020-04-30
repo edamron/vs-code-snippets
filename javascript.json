@@ -268,6 +268,36 @@
 			"});",
 		],
 	},
+	"PropType of TypeScript object": {
+		"prefix": "proptype_object",
+		"description": "Declaration of a PropType of an object",
+		"body": [
+			"// need this import",
+			"//import PropTypes from 'prop-types';",
+			"${1:${TM_FILENAME_BASE}}.PropTypes = {",
+			"\t${2:propName}: PropTypes.shape({",
+			"\t\t${3:key1Name}: PropTypes.${4:key1Type}.isRequired,",
+			"\t\t${5:key2Name}: PropTypes.${6:key2Type}.isRequired,",
+			"\t}).isRequired,$0",
+			"};",
+		],
+	},
+	"PropType of TypeScript array of objects": {
+		"prefix": "proptype_arrayOf_object",
+		"description": "Declaration of a PropType of an array of object",
+		"body": [
+			"// need this import",
+			"//import PropTypes from 'prop-types';",
+			"${1:${TM_FILENAME_BASE}}.PropTypes = {",
+			"\t${2:propName}: PropTypes.arrayOf(",
+			"\t\tPropTypes.shape({",
+			"\t\t\t${3:key1Name}: PropTypes.${4:key1Type}.isRequired,",
+			"\t\t\t${5:key2Name}: PropTypes.${6:key2Type}.isRequired,",
+			"\t\t})",
+			"\t).isRequired,$0",
+			"};",
+		],
+	},
 	/*
 	"snippet title": {
 		"prefix": "",
