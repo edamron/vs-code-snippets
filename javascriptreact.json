@@ -33,5 +33,10 @@
 			"export default $1;",
 		],
 		"description": "A complete React functional component",
-	}
+	},
+	"console.log()": {
+		"prefix": "clog",
+		"description": "console.log(...)",
+		"body": "console.log('${1:what?}');$0",
+	},
 }

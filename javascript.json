@@ -286,6 +286,7 @@
 		"prefix": "proptype_arrayOf_object",
 		"description": "Declaration of a PropType of an array of object",
 		"body": [
+			"// for more info, see https://reactjs.org/docs/typechecking-with-proptypes.html",
 			"// need this import",
 			"//import PropTypes from 'prop-types';",
 			"${1:${TM_FILENAME_BASE}}.PropTypes = {",
@@ -297,6 +298,11 @@
 			"\t).isRequired,$0",
 			"};",
 		],
+	},
+	"console.log()": {
+		"prefix": "clog",
+		"description": "console.log(...)",
+		"body": "console.log('${1:what?}');$0",
 	},
 	/*
 	"snippet title": {
